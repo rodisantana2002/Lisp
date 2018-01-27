@@ -1,2 +1,2 @@
 
-((:|TITLE| "sexo na estrada" :|ARTIST| "sheron stone" :|RATING| 9. :|RIPPED| |COMMON-LISP|::|T|)) 
+((:|TITLE| "teste" :|ARTIST| "jose" :|RATING| 9. :|RIPPED| |COMMON-LISP|::|T|) (:|TITLE| "sexo na estrada" :|ARTIST| "sheron stone" :|RATING| 9. :|RIPPED| |COMMON-LISP|::|T|)) 
