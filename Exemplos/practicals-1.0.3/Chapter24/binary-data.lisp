@@ -32,13 +32,13 @@
 
 (defmacro define-binary-type (name (&rest args) &body spec)
   (with-gensyms (type stream value)
-  `(progn
-    (defmethod read-value ((,type (eql ',name)) ,stream &key ,@args)
-      (declare (ignorable ,@args))
-      ,(type-reader-body spec stream))
-    (defmethod write-value ((,type (eql ',name)) ,stream ,value &key ,@args)
-      (declare (ignorable ,@args))
-      ,(type-writer-body spec stream value)))))
+   `(progn
+     (defmethod read-value ((,type (eql ',name)) ,stream &key ,@args)
+       (declare (ignorable ,@args))
+       ,(type-reader-body spec stream))
+     (defmethod write-value ((,type (eql ',name)) ,stream ,value &key ,@args)
+       (declare (ignorable ,@args))
+       ,(type-writer-body spec stream value)))))
 
 (defun type-reader-body (spec stream)
   (ecase (length spec)
@@ -63,12 +63,12 @@
        (eval-when (:compile-toplevel :load-toplevel :execute)
          (setf (get ',name 'slots) ',(mapcar #'first slots))
          (setf (get ',name 'superclasses) ',superclasses))
-       
+
        (defclass ,name ,superclasses
          ,(mapcar #'slot->defclass-slot slots))
-       
+
        ,read-method
-       
+
        (defmethod write-object progn ((,objectvar ,name) ,streamvar)
          (declare (ignorable ,streamvar))
          (with-slots ,(new-class-all-slots slots superclasses) ,objectvar
@@ -88,7 +88,7 @@
       (defmethod read-value ((,typevar (eql ',name)) ,streamvar &key)
         (let* ,(mapcar #'(lambda (x) (slot->binding x streamvar)) slots)
           (let ((,objectvar
-                 (make-instance 
+                 (make-instance
                   ,@(or (cdr (assoc :dispatch options))
                         (error "Must supply :disptach form."))
                   ,@(mapcan #'slot->keyword-arg slots))))
@@ -157,4 +157,3 @@ and superclasses have been saved."
   (declare (ignore stream))
   (let ((*in-progress-objects* (cons object *in-progress-objects*)))
     (call-next-method)))
-
