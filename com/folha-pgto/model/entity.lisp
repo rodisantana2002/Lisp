@@ -1,5 +1,6 @@
 (defclass entity()
-  ((id
-    :initarg :id
-    :initform (error "formato incorreto para o campo id.")
-    :accessor id)))
+  (
+   (id
+     :accessor id)
+   (descricao
+     :accessor descricao)))
