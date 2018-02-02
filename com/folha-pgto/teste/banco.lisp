@@ -1,4 +1,2 @@
-(in-package #:com.folha-pgto.teste)
-
-(defun dump-db()
-  (loop for i from 1 to 10 do (print i)))
+(defun teste()
+  (write-to-string "rodolfo" :pretty))

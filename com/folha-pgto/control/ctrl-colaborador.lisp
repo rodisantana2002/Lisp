@@ -2,7 +2,8 @@
 
 (defun main()
   (load "/Users/rodolfosmac/Documents/Projetos/Lisp/com/folha-pgto/model/colaborador.lisp")
-  (setf *colaborador* (init-colaborador 4545)))
+  (setf *colaborador* (init-colaborador 4545))
+  (write "oi"))
 
 (defun save-db (filename)
    (with-open-file (out filename
