@@ -1,3 +1,7 @@
+;
+;helper para o manuseio de data e hora
+;
+
 (defpackage #:com.folha-pgto.helpers.datahora
   (:use
       :cl)
@@ -13,6 +17,7 @@
 
 (in-package #:com.folha-pgto.helpers.datahora)
 
+
 (defconstant *dias-semana* '("Segunda-feira" "Terça-feira" "Quarta-feira" "Quinta-feira" "Sexta-feira" "Sábado" "Domindo"))
 
 (defun init()
@@ -24,36 +29,36 @@
 ;retorna apenas a data no formato dia mes ano
 (defun get-data()
   (setf data-hora (init))
-  (format t "~2,'0d/~2,'0d/~4,'0d"  (elt data-hora 3)
+  (let ((dt (format nil "~2,'0d/~2,'0d/~4,'0d"  (elt data-hora 3)
                                     (elt data-hora 4)
-                                    (elt data-hora 5)))
+                                    (elt data-hora 5)))) dt))
 
 ;retorna data e hora no formato dia mes ano hora minuto segundo
 (defun get-data-hora()
   (setf data-hora (init))
-  (format t "~2,'0d/~2,'0d/~4,'0d ~2,'0d:~2,'0d:~2,'0d" (elt data-hora 3)
+  (let ((dthora (format nil "~2,'0d/~2,'0d/~4,'0d ~2,'0d:~2,'0d:~2,'0d" (elt data-hora 3)
                                                         (elt data-hora 4)
                                                         (elt data-hora 5)
                                                         (elt data-hora 2)
                                                         (elt data-hora 1)
-                                                        (elt data-hora 0)))
+                                                        (elt data-hora 0)))) dthora))
 
 ;retorna apenas hora no formato hora minuto segundo
 (defun get-hora()
   (setf data-hora (init))
-  (format t "~2,'0d:~2,'0d:~2,'0d" (elt data-hora 2)
+  (let ((hr (format nil "~2,'0d:~2,'0d:~2,'0d" (elt data-hora 2)
                                    (elt data-hora 1)
-                                   (elt data-hora 0)))
+                                   (elt data-hora 0)))) hr))
 
 ;retorna key no formato ano mes dia hora minuto segundo
 (defun get-key()
   (setf data-hora (init))
-  (format t "~4,'0d~2,'0d~2,'0d~2,'0d~2,'0d~2,'0d"  (elt data-hora 5)
+  (let ((key (format nil "~4,'0d~2,'0d~2,'0d~2,'0d~2,'0d~2,'0d"  (elt data-hora 5)
                                                     (elt data-hora 4)
                                                     (elt data-hora 3)
                                                     (elt data-hora 2)
                                                     (elt data-hora 1)
-                                                    (elt data-hora 0)))
+                                                    (elt data-hora 0)))) key))
 ;retorna o dia da semana
 (defun get-dia-semana()
   (setf data-hora (init))
@@ -62,16 +67,14 @@
 ;retorna o dia do mes
 (defun get-dia-mes()
   (setf data-hora (init))
-  (format t "~2,'0d"  (elt data-hora 3)))
-
+  (let ((dia (format nil "~2,'0d"  (elt data-hora 3)))) dia))
 
 ;retorna o mes do ano corrente
 (defun get-mes()
   (setf data-hora (init))
-  (format t "~2,'0d"  (elt data-hora 4)))
-
+  (let ((mes (format nil "~2,'0d"  (elt data-hora 4)))) mes))
 
 ;retorna o ano
 (defun get-ano()
   (setf data-hora (init))
-  (format t "~2,'0d"  (elt data-hora 5)))
+  (let ((ano (format nil "~2,'0d"  (elt data-hora 5)))) ano))
