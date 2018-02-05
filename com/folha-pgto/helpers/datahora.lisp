@@ -1,7 +1,6 @@
 ;
 ;helper para o manuseio de data e hora
 ;
-
 (defpackage #:com.folha-pgto.helpers.datahora
   (:use
       :cl)
