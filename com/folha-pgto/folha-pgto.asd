@@ -3,10 +3,9 @@
 
 (defsystem folha-pgto
   :name "folha-pgto"
+  :serial t
   :author "Rodolfo Santana"
   :components (
-    (:module "helpers"
-      components((:file "datahora")))
-
-    (:file "entidades" :depends-on ("helpers"))
+    (:file "helpers/datahora")
+    (:file "model/entidades" :depends-on ("helpers/datahora"))
   ))
