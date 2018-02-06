@@ -3,6 +3,7 @@
 ;
 (defpackage #:com.folha-pgto.helpers.datahora
   (:use
+      :com.folha-pgto.helpers.constantes
       :cl)
   (:export
       :get-data
@@ -12,12 +13,11 @@
       :get-dia-mes
       :get-mes
       :get-ano
-      :get-key))
+      :get-key
+      :ishora
+      :isdate))
 
 (in-package #:com.folha-pgto.helpers.datahora)
-
-
-(defconstant *dias-semana* '("Segunda-feira" "Terça-feira" "Quarta-feira" "Quinta-feira" "Sexta-feira" "Sábado" "Domindo"))
 
 (defun init()
   (multiple-value-bind
@@ -77,3 +77,7 @@
 (defun get-ano()
   (setf data-hora (init))
   (let ((ano (format nil "~2,'0d"  (elt data-hora 5)))) ano))
+
+(defun isdate())
+
+(defun ishora())

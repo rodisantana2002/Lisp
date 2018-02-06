@@ -6,6 +6,7 @@
   :serial t
   :author "Rodolfo Santana"
   :components (
-    (:file "helpers/datahora")
-    (:file "model/entidades" :depends-on ("helpers/datahora"))
+    (:file "helpers/constantes")
+    (:file "helpers/datahora" :depends-on ("helpers/constantes"))
+    (:file "model/entidades"  :depends-on ("helpers/datahora"))
   ))

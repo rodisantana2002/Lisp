@@ -12,6 +12,7 @@
 (in-package #:com.folha-pgto.model.entidades)
 
 ;
+;
 ;definição das classes abstratas
 (defclass entity()
   (
