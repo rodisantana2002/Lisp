@@ -14,7 +14,6 @@
       :get-mes
       :get-ano
       :get-key
-      :is-hora
       :is-date))
 
 (in-package #:com.folha-pgto.helpers.datahora)
@@ -80,15 +79,19 @@
   (init)
   (let ((ano (format nil "~2,'0d"  (elt data-hora 5)))) ano))
 
-; (defun is-date(data)
-;   (let* ((dia (subseq data 0 2))
-;          (mes (subseq data 3 5))
-;          (ano (subseq data 6 10)))
-;     (if (equal (is-dia-valido (parse-integer dia)
-;                               (parse-integer mes)
-;                               (parse-integer ano))) t) t nil))
+(defun is-date(data)
+  (let* ((dia (subseq data 0 2))
+         (mes (subseq data 3 5))
+         (ano (subseq data 6 10)))
+    (valide-date (parse-integer dia)
+                 (parse-integer mes)
+                 (parse-integer ano))))
 
-(defun is-hora())
+(defun valide-date (dia mes ano)
+   (if (and
+            (eq (is-mes-valido mes) 't)
+            (eq (is-dia-valido dia mes ano) 't)
+            (eq (is-ano-valido ano) 't)) t))
 
 (defun is-dia-valido(dia mes ano)
   (if (and (> dia 0) (<= dia (get-ultimo-dia-mes mes ano))) t))
@@ -100,8 +103,8 @@
   (if (>= ano *ano-minimo*) t))
 
 (defun get-ultimo-dia-mes(mes ano)
-  (if (= mes 2)
+  (if (= mes *mes-fevereiro*)
     (if (= (mod ano 4) 0)
-      (let ((dia 29)) dia)
+      (let ((dia *ultimo-dia-fevereiro-bisexto*)) dia)
       (let ((dia (nth mes *ultimo-dia-mes*))) dia))
     (let ((dia (nth mes *ultimo-dia-mes*))) dia)))
