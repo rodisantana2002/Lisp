@@ -5,12 +5,14 @@
   (:use
       :cl
       :com.folha-pgto.helpers.datahora)
+  (:nicknames "entity")
   (:export
       :make-colaborador
       :make-setor
-      :make-id))
+      :make-id)
+  (:nicknames :entidades))
 
-(in-package :com.folha-pgto.model.entidades)
+(in-package #:com.folha-pgto.model.entidades)
 
 ;
 ;metodo que gera um codigo unico para o campo id

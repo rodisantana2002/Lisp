@@ -9,7 +9,8 @@
       :com.folha-pgto.helpers.constantes
       :com.folha-pgto.helpers.datahora)
   (:export
-      :main))
+      :main)
+  (:nicknames :test-helpers))   
 
 (in-package :com.folha-pgto.test.test-helpers)
 

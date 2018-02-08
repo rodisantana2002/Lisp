@@ -14,9 +14,10 @@
       :get-mes
       :get-ano
       :get-key
-      :is-date))
+      :is-date)
+  (:nicknames :datahora))     
 
-(in-package :com.folha-pgto.helpers.datahora)
+(in-package #:com.folha-pgto.helpers.datahora)
 
 (defvar data-hora nil)
 

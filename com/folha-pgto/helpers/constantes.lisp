@@ -11,9 +11,10 @@
       :*ultimo-dia-mes*
       :*ultimo-dia-fevereiro-bisexto*
       :*mes-fevereiro*
-      :*ano-minimo*))
+      :*ano-minimo*)
+  (:nicknames :constantes))    
 
-(in-package :com.folha-pgto.helpers.constantes)
+(in-package #:com.folha-pgto.helpers.constantes)
 
 ; constante para datas/dias
 (defparameter *dias-semana* '("Segunda-feira" "Terça-feira" "Quarta-feira" "Quinta-feira" "Sexta-feira" "Sábado" "Domindo"))
