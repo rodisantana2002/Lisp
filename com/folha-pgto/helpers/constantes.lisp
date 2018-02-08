@@ -1,7 +1,7 @@
 ;
 ;helper para o manuseio de data e hora
 ;
-(defpackage :com.folha-pgto.helpers.constantes
+(defpackage #:com.folha-pgto.helpers.constantes
   (:use
       :cl)
   (:export
@@ -12,7 +12,7 @@
       :*ultimo-dia-fevereiro-bisexto*
       :*mes-fevereiro*
       :*ano-minimo*)
-  (:nicknames :constantes))    
+  (:nicknames :constantes))
 
 (in-package #:com.folha-pgto.helpers.constantes)
 

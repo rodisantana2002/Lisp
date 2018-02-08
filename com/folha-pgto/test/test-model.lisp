@@ -4,7 +4,7 @@
 ;
 ;teste dos pacotes entidades
 ;
-(defpackage :com.folha-pgto.test.test-model
+(defpackage #:com.folha-pgto.test.test-model
   (:use
       :cl
       :com.folha-pgto.helpers.constantes
@@ -20,9 +20,16 @@
 (defun main()
 
   (setf x (make-colaborador :matricula 0241545
-                            :situacao 0
+                            :situacao (nth 0 *situacao-colaborador*)
                             :primeiro-nome "Rodolfo"
-                            :cpf 02473454906)))
+                            :cpf 02473454906))
+  (setf (entidades::id x) (make-id))
+  (setf (entidades::sexo x) (nth 0 *sexo*))
+  (setf (entidades::segundo-nome x) "Santana")
+
+  (setf setor (make-setor :descricao "Contabilidade"
+                          :centro-custo "Operacaoes")))
+
 
 
 ; metodos que permitem que seja gerado um nickname apartir de seu requisitante

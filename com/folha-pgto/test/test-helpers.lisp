@@ -3,16 +3,16 @@
 ;
 ;teste dos pacotes helpers
 ;
-(defpackage :com.folha-pgto.test.test-helpers
+(defpackage#:com.folha-pgto.test.test-helpers
   (:use
       :cl
       :com.folha-pgto.helpers.constantes
       :com.folha-pgto.helpers.datahora)
   (:export
       :main)
-  (:nicknames :test-helpers))   
+  (:nicknames :test-helpers))
 
-(in-package :com.folha-pgto.test.test-helpers)
+(in-package #:com.folha-pgto.test.test-helpers)
 
 
 (defun main()

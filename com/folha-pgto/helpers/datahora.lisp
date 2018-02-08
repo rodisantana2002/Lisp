@@ -1,7 +1,7 @@
 ;
 ;helper para o manuseio de data e hora
 ;
-(defpackage :com.folha-pgto.helpers.datahora
+(defpackage #:com.folha-pgto.helpers.datahora
   (:use
       :com.folha-pgto.helpers.constantes
       :cl)
@@ -15,7 +15,7 @@
       :get-ano
       :get-key
       :is-date)
-  (:nicknames :datahora))     
+  (:nicknames :datahora))
 
 (in-package #:com.folha-pgto.helpers.datahora)
 
