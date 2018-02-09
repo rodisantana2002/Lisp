@@ -45,7 +45,7 @@
       :initform nil
       :accessor rg)
     (primeiro-nome
-      :initform ""
+      :initform nil
       :initarg :primeiro-nome
       :accessor primeiro-nome)
     (segundo-nome

@@ -21,9 +21,9 @@
 
   (setf x (make-colaborador :matricula 0241545
                             :situacao (nth 0 *situacao-colaborador*)
-                            :primeiro-nome "Rodolfo"
+                            ;:primeiro-nome nil
                             :cpf 02473454906))
-  (setf (entidades::id x) (make-id))
+  (setf (entidades::id x) 444) ;(make-id)
   (setf (entidades::sexo x) (nth 0 *sexo*))
   (setf (entidades::segundo-nome x) "Santana")
 
@@ -42,3 +42,20 @@
 ;   (rename-package package (package-name package)
 ;                   (adjoin nickname (package-nicknames package)
 ;                           :test #'string=)))
+
+
+; (defun inspect (( object standard-object))
+;   (inspect-rec (class-slots (class-of object)) object))
+;
+;
+; (defun inspect-rec (slots o)
+;   (if (atom slots) ()
+;    (let ((sn (slot-definition-name (car slots)))) (cons (list sn '=> ( slot-value o sn) )  ( inspect-rec (cdr slots) o)))))
+
+
+(defun fatorial (n)
+  (if (= n 0) 1 (* n (fatorial (- n 1)))))
+
+(defun listar (lista)
+  (dolist (x lista)
+    (if (evenp x) (print x) (print "impar"))))
