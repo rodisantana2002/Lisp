@@ -1,4 +1,6 @@
 (asdf:operate 'asdf:load-op :aserve)
+;(asdf:operate 'asdf:load-op :webactions)
+
 (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/constantes.lisp")
 (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/datahora.lisp")
 (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/model/entidades.lisp")
@@ -20,49 +22,41 @@
 (in-package #:com.folha-pgto.test.test-web)
 
 (defun init()
-  (publish :path "/charcount.html"
+  (publish :path "/index.html"
       :content-type "text/html"
       :function
       #'(lambda (req ent)
-          (let* ((body (get-request-body req))
-                 (text (if* body
-                        then (cdr (assoc "quotation"
-                                    (form-urlencoded-to-query body)
-                                    :test #'equal)))))
            (with-http-response (req ent)
-             (with-http-body (req ent)
-               (if* text
-                 then ; got the quotation, analyze it
-                      (html
-                       (:html
-                         (:head (:title "Character Counts"))
-                         (:body
-                           (:table
-                             (do ((i #.(char-code #\a) (1+ i)))
-                                 ((> i #.(char-code #\z)))
-                               (html (:tr
-                                       (:td (:princ (code-char i)))
-                                       (:td (:princ
-                                              (count (code-char i
-                                                      text)))))))))))
-                 else ; ask for quotation
-                      (html
-                        (:html
-                           (:head (:title "quote character counter"))
+              (with-http-body (req ent)
+                 (html
+                    (:html (:head (:title "Hello World Test"))
                            (:body
-                              ((:form :action "charcount.html"
-                                      :method "POST"
-                                "Enter your favorite quote "
-                                :br
-                                ((:textarea
-                                    :name "quotation"
-                                    :rows 30
-                                    :cols 50))
-                                :br
-                                ((:input :type "submit"
-                                    :name "submit"
-                                    :value "count it")))))))))))))
+                             ((:font :color (nth (random 5) '("red" "blue" "green" "purple" "black"))) "Hello ")
+                             ((:font :color "blue") "World!"))))))))
+
+  ; (publish :path "/queryform"
+  ;     :content-type "text/html"
+  ;     :function
+  ;     #'(lambda (req ent)
+  ;         (let ((name (cdr (assoc "name" (request-query req)
+  ;                                 :test #'equal))))
+  ;           (with-http-response (req ent)
+  ;             (with-http-body (req ent)
+  ;               (if* name
+  ;                 then ; form was filled out, just say name
+  ;                      (html (:html
+  ;                              (:head (:title "Hi to " (:princ-safe name)))
+  ;                              (:body "Your name is "  (:b (:princ  -safe name)))))
+  ;                 else ; put up the form
+  ;                      (html (:html
+  ;                              (:head (:title "Tell me your name"))
+  ;                              (:body
+  ;                                ((:form :action "queryform") "Your name is " ((:input :type "date" :name "name" :maxlength "20"))
+  ;                                                                             ((:input :type "submit" :name "enviar" :value "Enviar"))))))))))))
+  ; (write "name")
+
+;  (webaction-project "simple" :destination "site/" :index "home" :map '(("home" "view/html/pageone.clp") ("second" "view/html/pagetwo.clp")))
 
   (net.aserve:start :host "localhost"
-                    :port 8080
+                    :port 8090
                     :listeners 0))

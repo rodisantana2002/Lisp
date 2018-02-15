@@ -28,7 +28,7 @@
     (setf data-hora (vector second minute hour date month year day-of-week))))
 
 ;retorna apenas a data no formato dia mes ano
-(defun get-data()
+(defun get-data() "retorna apenas a data no formato dia mes ano"
   (init)
   (let ((dt (format nil "~2,'0d/~2,'0d/~4,'0d"  (elt data-hora 3)
                                                 (elt data-hora 4)
