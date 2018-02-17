@@ -7,6 +7,7 @@
   :author "Rodolfo Santana"
   :components (
     (:file "helpers/constantes")
-    (:file "helpers/datahora" :depends-on ("helpers/constantes"))
+    (:file "helpers/packages" :depends-on ("helpers/constantes"))
+    (:file "helpers/datahora" :depends-on ("helpers/constantes" "helpers/packages"))
     (:file "model/entidades"  :depends-on ("helpers/datahora"))
   ))

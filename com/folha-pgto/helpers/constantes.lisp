@@ -11,7 +11,8 @@
       :*ultimo-dia-mes*
       :*ultimo-dia-fevereiro-bisexto*
       :*mes-fevereiro*
-      :*ano-minimo*)
+      :*ano-minimo*
+      :*linha*)
   (:nicknames :constantes))
 
 (in-package #:com.folha-pgto.helpers.constantes)
@@ -26,3 +27,5 @@
 ; define contantentes e variaveis globais
 (defparameter *situacao-colaborador* '("Ativo" "Desligado" "Afastado"))
 (defparameter *sexo* '("Masculino" "Feminino"))
+
+(defparameter *linha* "+-------------------------------------------------+")

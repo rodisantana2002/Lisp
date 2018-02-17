@@ -5,7 +5,6 @@
   (:use
       :cl
       :com.folha-pgto.helpers.datahora)
-  (:nicknames "entity")
   (:export
       :make-colaborador
       :make-setor
