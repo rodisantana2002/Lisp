@@ -1,41 +1,44 @@
-(asdf:operate 'asdf:load-op :aserve)
-(asdf:operate 'asdf:load-op :webactions)
 
-(load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/constantes.lisp")
-(load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/packages.lisp")
-(load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/datahora.lisp")
-(load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/model/entidades.lisp")
+(in-package #:com.folha-pgto.test)
 
+; (asdf:operate 'asdf:load-op :aserve)
+; (asdf:operate 'asdf:load-op :webactions)
+;
+; (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/constantes.lisp")
+; (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/packages.lisp")
+; (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/helpers/datahora.lisp")
+; (load "/Users/rodolfosantana/Documents/Projetos/Lisp/com/folha-pgto/model/entidades.lisp")
+;
+;
+; (defpackage  #:com.folha-pgto.test.test-web
+;   (:use
+;       :cl
+;       :acl-compat.excl
+;       :net.aserve
+;       :webactions-system
+;       :net.html.generator
+;       :com.folha-pgto.helpers.packages
+;       :com.folha-pgto.helpers.constantes
+;       :com.folha-pgto.helpers.datahora
+;       :com.folha-pgto.model.entidades)
+;   (:export
+;       :init)
+;   (:nicknames :test-web))
+;
 
-(defpackage  #:com.folha-pgto.test.test-web
-  (:use
-      :cl
-      :acl-compat.excl
-      :net.aserve
-      :webactions-system
-      :net.html.generator
-      :com.folha-pgto.helpers.packages
-      :com.folha-pgto.helpers.constantes
-      :com.folha-pgto.helpers.datahora
-      :com.folha-pgto.model.entidades)
-  (:export
-      :init)
-  (:nicknames :test-web))
-
-(in-package #:com.folha-pgto.test.test-web)
-
-(defun init()
-
-  (webaction-project "simpleproject"
-       :destination "/"
-       :index "home"
-       :map
-       '(("home"   "pageone.clp")
-         ("second" "pagetwo.clp")))
-
-
-  (net.aserve:start :host "localhost" :port 8000 :listeners 0))
-
+;
+; (defun init()
+;
+;   (webaction-project "simpleproject"
+;        :destination "/"
+;        :index "home"
+;        :map
+;        '(("home"   "pageone.clp")
+;          ("second" "pagetwo.clp")))
+;
+;
+;   (net.aserve:start :host "localhost" :port 8000 :listeners 0))
+;
 
   ; (publish :path "/index.html"
   ;     :content-type "text/html ; charset=utf-8"

@@ -1,21 +1,9 @@
-(load "/Users/rodolfosmac/Documents/Projetos/Lisp/com/folha-pgto/helpers/constantes.lisp")
-(load "/Users/rodolfosmac/Documents/Projetos/Lisp/com/folha-pgto/helpers/datahora.lisp")
-;
-;teste dos pacotes helpers
-;
-(defpackage#:com.folha-pgto.test.test-helpers
-  (:use
-      :cl
-      :com.folha-pgto.helpers.constantes
-      :com.folha-pgto.helpers.datahora)
-  (:export
-      :main)
-  (:nicknames :test-helpers))
 
-(in-package #:com.folha-pgto.test.test-helpers)
+(in-package #:com.folha-pgto.test)
 
+(defun main-helpers()
+  (testar-grafo))
 
-(defun main()
-  (progn
-    (format nil "Data e hora atual do sistema: ~a" (get-data-hora))
-    (format nil "dia da semana: ~a" (get-dia-semana))))
+(defun testar-grafo()
+  (setq resultado (gerar-grafo '((s u 10) (s x 5) (u v 1) (u x 2) (x u 3) (x v 9) (x y 2) (v y 4) (y v 6) (y s 7)) 's))
+  (prin1 (caminho-menor-custo 's 'y (cadr resultado))))

@@ -1,16 +1,5 @@
-;
-; para usar (doc-pkg-fns (find-package :COM.FOLHA-PGTO.TEST.TEST-WEB))
-;
 
-(defpackage #:com.folha-pgto.helpers.packages
-  (:use
-      :com.folha-pgto.helpers.constantes
-      :cl)
-  (:export
-    :doc-pkg)
-  (:nicknames :packages))
-
-(in-package #:com.folha-pgto.helpers.packages)
+(in-package #:com.folha-pgto.helpers)
 
 (defvar *pkgs* ())
 

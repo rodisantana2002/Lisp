@@ -1,24 +1,5 @@
-;
-;helper para o manuseio de data e hora
-;
-(defpackage #:com.folha-pgto.helpers.datahora
-  (:use
-      :com.folha-pgto.helpers.packages
-      :com.folha-pgto.helpers.constantes
-      :cl)
-  (:export
-      :get-data
-      :get-data-hora
-      :get-hora
-      :get-dia-semana
-      :get-dia-mes
-      :get-mes
-      :get-ano
-      :get-key
-      :is-date)
-  (:nicknames :datahora))
 
-(in-package #:com.folha-pgto.helpers.datahora)
+(in-package #:com.folha-pgto.helpers)
 
 (defvar data-hora nil)
 

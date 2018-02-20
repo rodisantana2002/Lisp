@@ -6,8 +6,24 @@
   :serial t
   :author "Rodolfo Santana"
   :components (
-    (:file "helpers/constantes")
-    (:file "helpers/packages" :depends-on ("helpers/constantes"))
-    (:file "helpers/datahora" :depends-on ("helpers/constantes" "helpers/packages"))
-    (:file "model/entidades"  :depends-on ("helpers/datahora"))
+    (:file "helpers/package")
+    (:file "helpers/constantes"  :depends-on ("helpers/package"))
+    (:file "helpers/datahora"    :depends-on ("helpers/package"))
+    (:file "helpers/doc-pkg"     :depends-on ("helpers/package"))
+    (:file "helpers/grafo"       :depends-on ("helpers/package"))
+
+    ;;carrega arquivos das entidades
+    (:file "model/package"       :depends-on ("helpers/package"))
+    (:file "model/entity"        :depends-on ("model/package"))
+    (:file "model/pessoa"        :depends-on ("model/package"))
+    (:file "model/setor"         :depends-on ("model/package"))
+    (:file "model/cargo"         :depends-on ("model/package"))
+    (:file "model/colaborador"   :depends-on ("model/package"))
+
+    ;;carrega arquivos de teste
+    (:file "test/package"        :depends-on ("helpers/package" "model/package" ))
+    (:file "test/test-helpers"   :depends-on ("test/package" ))
+    (:file "test/test-model"     :depends-on ("test/package" ))
+    (:file "test/test-web"       :depends-on ("test/package" ))
+
   ))
