@@ -6,7 +6,7 @@
     :cl)
   (:export
     :main)
-  (:nicknames :test-model))
+  (:nicknames :grafo))
 
 (in-package #:com.folha-pgto.helpers.grafo)
 
