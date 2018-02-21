@@ -1,11 +1,24 @@
 
 (in-package #:com.folha-pgto.helpers)
 
+(defvar U nil)
+(defvar V nil)
+(defvar estimativa nil)
+(defvar precedente nil)
+(defvar grafoOrdenado)
+(defvar caminhoResultante nil)
+(defvar Peso nil)
+(defvar resultado nil)
+(defvar verticeResultante nil)
+(defvar arestasSaida nil)
+(defvar estimativaOrdenada nil)
+
 ; Retorna ((Lista das estimativas) (Lista dos precedentes))
 (defun gerar-grafo (G s)
   ;Primeiro geramos o grafo para que os pesos das arestas fiquem ordenados (opcional)
+
   (setq grafoOrdenado
-    (sort G #'(lambda (a1 a2)(< (nth 2 a1) (nth 2 a2)))))
+         (sort G #'(lambda (a1 a2)(< (nth 2 a1) (nth 2 a2)))))
 
   ;Geramos a lista V com todos os vértices do grafo
   (setq V '())
