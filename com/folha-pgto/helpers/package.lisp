@@ -2,7 +2,8 @@
 ;definicao do pacore - helpers
 (defpackage #:com.folha-pgto.helpers
   (:use
-      :cl)
+      :cl
+      :cl-store)
   (:export
       ;exportação constantes
       :*dias-semana*
@@ -30,6 +31,10 @@
 
       ;tratamento de grafos
       :gerar-grafo
-      :caminho-menor-custo)
+      :caminho-menor-custo
+
+      ;serialização
+      :write-objeto
+      :read-objeto)
 
   (:nicknames :helpers))

@@ -13,3 +13,6 @@
 (defparameter *sexo* '("Masculino" "Feminino"))
 
 (defparameter *linha* "+-------------------------------------------------+")
+
+(defparameter *caminho-bd* "folha-pgto/dao/bd/")
+(defparameter *extensao-arq-bd* ".dat")
