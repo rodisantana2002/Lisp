@@ -1,4 +1,4 @@
-(defpackage #:com.folha-pgto.folha-pgto-system (:use :asdf :cl))
+(defpackage #:com.folha-pgto.folha-pgto-system (:use :asdf :cl :cl-store))
 (in-package #:com.folha-pgto.folha-pgto-system)
 
 (defsystem folha-pgto
