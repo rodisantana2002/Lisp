@@ -30,8 +30,8 @@
       :doc-pkg
 
       ;tratamento de grafos
-      :gerar-grafo
-      :caminho-menor-custo
+      ;:gerar-grafo
+      ;:caminho-menor-custo
 
       ;serialização
       :write-objeto

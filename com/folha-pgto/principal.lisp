@@ -3,3 +3,5 @@
   (asdf:oos     'asdf:load-op :cl-store)
   (asdf:operate 'asdf:load-op :folha-pgto)
   (in-package #:com.folha-pgto.test))
+
+                  
